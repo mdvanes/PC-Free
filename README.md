@@ -117,31 +117,32 @@ For local Docker installation, see the complete guide below.
 
 ---
 
-## Guía Rápida
 
-### 1️⃣ Verifica el almacenamiento disponible
+## Quick Guide
+
+### 1️⃣ Check available storage
 
 ```bash
 df -h
 ```
 
-Escoge la partición con más espacio libre.
+Choose the partition with the most free space.
 
-### 2️⃣ Crea la carpeta de datos para Docker
+### 2️⃣ Create the Docker data folder
 
 ```bash
 sudo mkdir -p /tmp/docker-data
 ```
 
-### 3️⃣ Configura Docker
+### 3️⃣ Configure Docker
 
-Edita el archivo:
+Edit the file:
 
 ```bash
 sudo nano /etc/docker/daemon.json
 ```
 
-Agrega:
+Add:
 
 ```json
 {
@@ -149,26 +150,26 @@ Agrega:
 }
 ```
 
-### 4️⃣ Reinicia tu Codespace
+### 4️⃣ Restart your Codespace
 
-Para aplicar los cambios de configuración.
+To apply the configuration changes.
 
-### 5️⃣ Verifica Docker
+### 5️⃣ Verify Docker
 
 ```bash
 docker info
 ```
 
-Asegúrate de que `Docker Root Dir` sea `/tmp/docker-data`.
+Make sure `Docker Root Dir` is `/tmp/docker-data`.
 
 ---
 
-## 🧱 Archivo `windows10.yml`
+## 🧱 `windows10.yml` File
 
 ```yaml
-# Antes de ejecutar docker-compose up, ejecuta:
+# Before running docker-compose up, run:
 # bash check_github_follow.sh || exit 1
-# Si no sigues a https://github.com/jephersonRD, el entorno no se iniciará.
+# If you are not following https://github.com/jephersonRD, the environment will not start.
 services:
   windows:
     image: dockurr/windows
@@ -199,7 +200,7 @@ volumes:
 
 ---
 
-## 🗝️ Archivo `.env`
+## 🗝️ `.env` File
 
 ```ini
 WINDOWS_USERNAME=YourUsername
@@ -207,7 +208,7 @@ WINDOWS_PASSWORD=YourPassword
 GITHUB_USER=YourGitHubUsername
 ```
 
-### 🛑 Agrega este archivo a tu `.gitignore`:
+### 🛑 Add this file to your `.gitignore`:
 
 ```bash
 echo ".env" >> .gitignore
@@ -215,20 +216,19 @@ echo ".env" >> .gitignore
 
 ---
 
-## ▶️ Inicia el contenedor
+## ▶️ Start the container
 
-### Iniciar por primera vez
+### First-time start
 
 ```bash
 docker-compose -f windows10.yml up
 ```
 
-### 🔌 Apagar la PC
+### 🔌 Shut down the PC
 
 ```bash
 docker stop windows
 ```
-
 ---
 
 ## System Requirements
